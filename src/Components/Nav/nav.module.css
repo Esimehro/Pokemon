@@ -1,0 +1,27 @@
+.navbar {
+  background-color: black;
+  height: 7rem;
+  padding: 4rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  position: relative;
+}
+
+.logo {
+  width: 85px;
+}
+
+::placeholder {
+  font-size: 16px;
+}
+
+.teamslink a {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: Roboto;
+  color: whitesmoke;
+}

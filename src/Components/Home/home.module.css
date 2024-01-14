@@ -1,0 +1,338 @@
+.container {
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputfield {
+  position: absolute;
+  top: 1.7rem;
+  width: 450px;
+  height: 50px;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  outline: none;
+  background-color: #ffff;
+  margin: 10px 0px;
+  border-radius: 3px;
+  font-size: 16px;
+  box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+}
+
+.card_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  padding: 2rem 2rem;
+  margin: 0 auto;
+  place-items: center;
+  background-color: whitesmoke;
+}
+
+.game_card_container {
+  margin: 15px;
+  text-align: left;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.game_card_container:hover {
+  box-shadow: rgb(32, 152, 209) 0px 0px 10px 3px, rgb(0, 0, 0) 0px 0px 10px;
+  transform: rotateY(180deg);
+}
+
+.game_card_container:nth-child(1) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/bulbasaur.png");
+}
+
+.game_card_container:nth-child(2) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/ivysaur.jpg");
+}
+
+.game_card_container:nth-child(3) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/venusaur.jpeg");
+}
+
+.game_card_container:nth-child(4) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/charmander.jpg");
+}
+
+.game_card_container:nth-child(5) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/charmeleon.jpg");
+}
+
+.game_card_container:nth-child(6) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/charizard.jpeg");
+}
+
+.game_card_container:nth-child(7) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/squirtle.jpeg");
+}
+
+.game_card_container:nth-child(8) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/wartortle.jpg");
+}
+
+.game_card_container:nth-child(9) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/blastoise.jpg");
+}
+
+.game_card_container:nth-child(10) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/caterpie.png");
+}
+
+.game_card_container:nth-child(11) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/metapod.png");
+}
+
+.game_card_container:nth-child(12) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/butterfree.jpeg");
+}
+
+.game_card_container:nth-child(13) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/weedle.jpg");
+}
+
+.game_card_container:nth-child(14) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/kakuna.png");
+}
+
+.game_card_container:nth-child(15) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/beedrill.jpg");
+}
+
+.game_card_container:nth-child(16) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/pidgey.jpg");
+}
+
+.game_card_container:nth-child(17) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/pidgeotto.jpeg");
+}
+
+.game_card_container:nth-child(18) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/pidgeot.jpeg");
+}
+
+.game_card_container:nth-child(19) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/rattata.jpg");
+}
+
+.game_card_container:nth-child(20) {
+  background-image: linear-gradient(
+      336deg,
+      rgba(0, 8, 29, 0.9) 23.83%,
+      rgba(0, 8, 29, 0.3) 96.1%
+    ),
+    url("../../assets/raticate.jpg");
+}
+
+.game_card_container:nth-child(1),
+.game_card_container:nth-child(2),
+.game_card_container:nth-child(3),
+.game_card_container:nth-child(4),
+.game_card_container:nth-child(5),
+.game_card_container:nth-child(6),
+.game_card_container:nth-child(7),
+.game_card_container:nth-child(8),
+.game_card_container:nth-child(9),
+.game_card_container:nth-child(10),
+.game_card_container:nth-child(11),
+.game_card_container:nth-child(12),
+.game_card_container:nth-child(13),
+.game_card_container:nth-child(14),
+.game_card_container:nth-child(15),
+.game_card_container:nth-child(16),
+.game_card_container:nth-child(17),
+.game_card_container:nth-child(18),
+.game_card_container:nth-child(19),
+.game_card_container:nth-child(20) {
+  direction: ltr;
+  width: 500px;
+  height: 500px;
+  padding: 7rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.game_card {
+  margin-bottom: 20px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.6s;
+}
+
+.game_card_container .details,
+.game_card_container .game_card_back {
+  position: absolute;
+  top: 20;
+  left: 20;
+}
+
+.game_card_container .game_card,
+.game_card_container .game_card_back {
+  backface-visibility: hidden;
+}
+
+.game_card_container:hover .game_card_back {
+  display: block;
+  transform: rotateY(180deg);
+}
+
+.details {
+  width: 100%;
+}
+
+.details p {
+  color: red;
+  position: absolute;
+  bottom: 22px;
+  left: 12px;
+}
+
+.game_card_back {
+  transform: rotateY(180deg);
+  width: 100%;
+  position: absolute;
+  right: 30px;
+}
+
+.game_card_container:hover .game_card_back .details {
+  display: block;
+}
+
+.name {
+  color: black;
+  font-size: 40px;
+  font-family: Luckiest Guy;
+  font-weight: 600;
+  position: absolute;
+  top: -104px;
+  right: -82px;
+}
+
+.add_btn {
+  position: absolute;
+  top: 18rem;
+  width: 120px;
+  padding: 1rem;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 1px solid whitesmoke;
+  box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 3px 41px -12px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.add_btn:hover {
+  background-color: whitesmoke;
+  font-weight: 600;
+  color: black;
+  border: 1px solid black;
+}
