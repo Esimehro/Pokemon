@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import details from "./details.module.css";
 import { useParams } from "react-router";
-import { useNavigate, Link } from "react-router-dom";
-import { usePokemonContext } from "../PokemonContext";
 
 const Details = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [pokemon, setPokemon] = useState(null);
   const [abilities, setAbilities] = useState([" "]);
   const [moves, setMoves] = useState([" "]);
   const [experiences, setExperiences] = useState([]);
@@ -17,12 +12,11 @@ const Details = () => {
   const [stats, setStats] = useState([]);
   const [sprites, setSprites] = useState({});
   const [types, setTypes] = useState([]);
-  // const [selectedPokemonCards, setSelectedPokemonCards] = useState([]);
+  const [team, setTeam] = useState([]);
+  const firstTime = useRef(true);
 
-  const { addPokemonToTeam } = usePokemonContext();
   const { id } = useParams();
-  const navigate = useNavigate();
- 
+
 
   const fetchDetails = async () => {
     try {
@@ -48,6 +42,11 @@ const Details = () => {
       const sprites = pokemonDetails.sprites;
       const types = pokemonDetails.types;
 
+      setPokemon({
+        id,
+        name: pokemonDetails.name,
+        url: pokemonDetails.url
+      });
       setAbilities(abilities);
       setMoves(moves);
       setExperiences(experiences);
@@ -68,34 +67,63 @@ const Details = () => {
     fetchDetails();
   }, [id]);
 
+  useEffect(() => {
+    let savedTeam = localStorage.getItem("pokemonTeam");
+    try {
+      savedTeam = JSON.parse(savedTeam);
+      if (savedTeam) setTeam(savedTeam);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (team) {
+      if (firstTime.current) {
+        firstTime.current = false;
+      } else {
+        try {
+          const rawTeam = JSON.stringify(team);
+          localStorage.setItem("pokemonTeam", rawTeam);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+  }, [team]);
+
   const handleAddToTeam = () => {
-    if (selectedCard !== null) {
-      const selectedPokemon = data[selectedCard];
-      addPokemonToTeam({
-        name: selectedPokemon.name,
-        abilities,
-        moves,
-        experiences,
-      });
-      
-      console.log("Added to team!");
-    console.log("Before navigation");
-    navigate("/my-teams");
-    console.log("After navigation")
+    if (pokemon !== null) {
+      const exists = team.find(p => p.id == pokemon.id);
+      if (!exists && team.length < 6) {
+        const newTeam = [...team];
+        newTeam.push(pokemon);
+        setTeam(newTeam);
+      }
     }
   };
 
+  const handleRemoveFromTeam = () => {
+    if (pokemon !== null) {
+      const newTeam = team.filter(p => p.id != id);
+      setTeam(newTeam);
+    }
+  };
 
   return (
     <div className={details.game_card_back}>
       <div className={details.game_btn}>
-        <button className={details.add_btn} onClick={handleAddToTeam}>
-          Add to Team
-        </button>
-        
-        <Link to="/" className={details.back_btn}>
-          Home
-        </Link>
+        {
+          team.find(p => p.id == id) ? (
+            <button className={details.add_btn} onClick={handleRemoveFromTeam}>
+              Remove from Team
+            </button>
+          ) : (
+            <button className={details.add_btn} onClick={handleAddToTeam}>
+              Add to Team
+            </button>
+          )
+        }
       </div>
 
       <div className={details.game_details}>

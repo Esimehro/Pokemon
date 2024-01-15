@@ -2,9 +2,11 @@
   background-color: black;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  grid-template-rows: auto;
+  padding: 2rem 2rem;
 }
 
 .no_teams {

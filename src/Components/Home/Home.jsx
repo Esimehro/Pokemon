@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import home from "./home.module.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,7 @@ const Home = () => {
         onChange={handleSearchChange}
       />
       
+      {loading && <Spinner/>}
       <div className={home.card_container}>
         {error && (
           <div>{`There is a problem fetching the data - ${error}`}</div>

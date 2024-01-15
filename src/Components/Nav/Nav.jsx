@@ -9,6 +9,7 @@ export const Nav = () => {
       <img className={css.logo} src={ball} alt="pokemon ball" />
 
       <div className={css.teamslink}>
+        <Link to="/">Home</Link>
         <Link to="/my-teams">My Team</Link>
       </div>
     </div>
