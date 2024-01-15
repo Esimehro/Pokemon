@@ -252,8 +252,8 @@
 .game_card_container:nth-child(19),
 .game_card_container:nth-child(20) {
   direction: ltr;
-  width: 500px;
-  height: 500px;
+  width: 374px;
+  height: 374px;
   padding: 7rem;
   background-position: center;
   background-repeat: no-repeat;
