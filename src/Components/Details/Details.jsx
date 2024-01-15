@@ -28,7 +28,6 @@ const Details = () => {
       }
 
       const pokemonDetails = await responseDetails.json();
-      console.log(pokemonDetails);
 
 
       const abilities = pokemonDetails.abilities.map(
