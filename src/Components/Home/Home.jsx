@@ -1,89 +1,91 @@
 import React, { useState, useEffect } from "react";
 import home from "./home.module.css";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [details, setDetails] = useState(null);
   const [data, setData] = useState(null);
-  const [error, setError] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon`)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon`);
         if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.json();
-      })
-      .then((actualData) => {
+
+        const actualData = await response.json();
+        console.log(actualData.results);
         setData(actualData.results);
         setError(null);
-      })
-      .catch((error) => {
-        setError(error);
+      } catch (error) {
+        setError(error.message);
         setData(null);
-        setDetails(null);
-      })
-      .finally(() => {
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
 
-  const handleCardClick = (index) => {
-    setSelectedCard(selectedCard === index ? null : index);
-  };
+    fetchData();
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  return (
-    <div className={home.container}>
-      <input
-        className={home.inputfield}
-        type="search"
-        placeholder="Search by name..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <div className={home.card_container}>
-        {error && (
-          <div>{`There is a problem fetching the data - ${error}`}</div>
-        )}
-        {data &&
-          data
-            .filter((result) =>
-              result.name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((results, index) => {
-              return (
-                <div
-                  className={home.game_card_container}
-                  key={results.url}
-                  onClick={() => handleCardClick(index)}
-                >
-                  <div className={home.game_card}>
-                    <h2 className={home.name}>{results.name}</h2>
-                  </div>
+  const handleCardClick = (url) => {
+    const id = url.split("/").reverse()[1];
+    console.log("Selected ID:", id);
+    setSelectedCard(id);
+    navigate(`/pokemons/${id}`);
+  };
 
-                  <div className={home.game_card_back}>
-                    <div className={home.details}>
-                      <p>Details of the card go here...</p>
-                      <button
-                        className={home.add_btn}
-                        onClick={() => alert("Add button clicked")}
-                      >
-                        Add
-                      </button>
+  return (
+    <div className={home.detailscontainer}>
+      <div className={home.container}>
+        <input
+          className={home.inputfield}
+          type="search"
+          placeholder="Search by name..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <div className={home.card_container}>
+          {error && (
+            <div>{`There is a problem fetching the data - ${error}`}</div>
+          )}
+          {data &&
+            data
+              .filter((result) =>
+                result.name.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((results, index) => {
+                return (
+                  
+                    <div
+                      className={home.game_card_container}
+                      key={results.url}
+                      onClick={() => handleCardClick(results.url)}
+                    >
+                    <Link
+                    key={results.url}
+                    to={"/pokemons/" + results.url.split("/").reverse()[1]}
+                  >
+                      <div className={home.game_card}>
+                        <h2 className={home.name}>{results.name}</h2>
+                      </div>
+                      </Link>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  
+                );
+              })}
+        </div>
       </div>
     </div>
   );

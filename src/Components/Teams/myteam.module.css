@@ -1,0 +1,55 @@
+.team_container {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no_teams {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.no_teams img {
+  width: 350px;
+  margin-top: 5rem;
+}
+
+.no_teams h3 {
+  color: whitesmoke;
+  font-size: 35px;
+  font-weight: 500;
+  font-family: Luckiest Guy;
+  font-family: Roboto;
+  margin-bottom: 25px;
+}
+
+.no_teams button {
+  width: 400px;
+}
+
+.no_teams a {
+  color: whitesmoke;
+  font-size: 24px;
+  border: 1px solid whitesmoke;
+  padding: 1rem;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 10px 3px 41px -12px whitesmoke;
+  -webkit-box-shadow: 10px 3px 41px -12px whitesmoke;
+  -moz-box-shadow: 10px 3px 41px -12px whitesmoke;
+}
+
+.no_teams a:hover {
+  background-color: whitesmoke;
+  font-weight: 600;
+  color: black;
+  border: 1px solid black;
+  transition: 0.5s ease-in;
+}
