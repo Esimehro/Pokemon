@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
   grid-template-rows: auto;
-  padding: 2rem 2rem;
 }
 
 .no_teams {
@@ -14,7 +13,6 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
