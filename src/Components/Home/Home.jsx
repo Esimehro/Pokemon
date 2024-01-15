@@ -47,45 +47,42 @@ const Home = () => {
   };
 
   return (
-    <div className={home.detailscontainer}>
-      <div className={home.container}>
-        <input
-          className={home.inputfield}
-          type="search"
-          placeholder="Search by name..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <div className={home.card_container}>
-          {error && (
-            <div>{`There is a problem fetching the data - ${error}`}</div>
-          )}
-          {data &&
-            data
-              .filter((result) =>
-                result.name.toLowerCase().includes(searchTerm.toLowerCase())
-              )
-              .map((results, index) => {
-                return (
-                  
-                    <div
-                      className={home.game_card_container}
-                      key={results.url}
-                      onClick={() => handleCardClick(results.url)}
-                    >
-                    <Link
+    <div className={home.container}>
+      <input
+        className={home.inputfield}
+        type="search"
+        placeholder="Search by name..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
+      
+      <div className={home.card_container}>
+        {error && (
+          <div>{`There is a problem fetching the data - ${error}`}</div>
+        )}
+        {data &&
+          data
+            .filter((result) =>
+              result.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((results, index) => {
+              return (
+                <div
+                  className={home.game_card_container}
+                  key={results.url}
+                  onClick={() => handleCardClick(results.url)}
+                >
+                  <Link
                     key={results.url}
                     to={"/pokemons/" + results.url.split("/").reverse()[1]}
                   >
-                      <div className={home.game_card}>
-                        <h2 className={home.name}>{results.name}</h2>
-                      </div>
-                      </Link>
+                    <div className={home.game_card}>
+                      <h2 className={home.name}>{results.name}</h2>
                     </div>
-                  
-                );
-              })}
-        </div>
+                  </Link>
+                </div>
+              );
+            })}
       </div>
     </div>
   );

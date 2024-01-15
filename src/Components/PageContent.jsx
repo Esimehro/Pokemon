@@ -4,7 +4,7 @@ import Home from "./Home/Home";
 
 const PageContent = () => {
   return (
-    <div>
+    <div className="page-content">
       <Nav />
       <Home />
     </div>
